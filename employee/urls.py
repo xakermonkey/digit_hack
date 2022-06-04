@@ -7,8 +7,9 @@ urlpatterns = [
     path("login", login, name='login'),
     path("recoverpw", recoverpw, name='recoverpw'),
     path("main", main, name='main'),
-    path("employees", employees, name='employees'),
+    path("code_to_text", code_to_text, name='code_to_text'),
     path("products", products, name='products'),
-    path("nomenclature", nomenclature, name='nomenclature'),
+    path("products_details", products_details, name='products_details'),
+    path("documentation", documentation, name='documentation'),
     path("post_data", getDT.as_view()),
 ]

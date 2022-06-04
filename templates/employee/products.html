@@ -26,8 +26,25 @@
                             <div class="card">
                                 <div class="card-body">
 
-                                    <h4 class="mt-0 header-title">Декларации</h4>
-                                    <p class="text-muted mb-4 font-13">для обработки</p>
+                                    <div style="display: flex">
+                                        <div>
+                                            <h4 class="mt-0 header-title">Декларации</h4>
+                                            <p class="text-muted mb-4 font-13">для обработки</p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="input-group mt-2">
+                                                <input type="text" class="form-control" placeholder="Строка описания"
+                                                       aria-label="Строка описания">
+                                                <input type="text" class="form-control" placeholder="Заявленный код"
+                                                       aria-label="Заявленный код">
+                                                <span class="input-group-append">
+                                                                    <a href="{% url 'products_details' %}" class="btn btn-primary"
+                                                                            type="button">Анализировать</a>
+                                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
 
                                     <div class="accordion" id="accordionExample">
                                         <div class="card mb-0">
@@ -68,7 +85,9 @@
                                                             <td>6348576000</td>
                                                             <td>Китай</td>
                                                             <td>Московская обл</td>
-                                                            <td><button type="button" class="btn btn-danger waves-effect waves-light">Детали</button></td>
+                                                            <td><a href="{% url 'products_details' %}" type="button"
+                                                                   class="btn btn-danger waves-effect waves-light">Детали</a>
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <td>2</td>
@@ -77,7 +96,8 @@
                                                             <td>6348576</td>
                                                             <td>Китай</td>
                                                             <td>Московская обл</td>
-                                                            <td><h2><span class="badge badge-success"><i class="mdi mdi-check"></i></span></h2></td>
+                                                            <td><h2><span class="badge badge-success"><i
+                                                                    class="mdi mdi-check"></i></span></h2></td>
                                                         </tr>
 
                                                         </tbody>
@@ -93,7 +113,7 @@
                                                             aria-expanded="false" aria-controls="collapseTwo">
                                                         № 0000 74378 98458
                                                     </button>
-                                                    <span class="badge badge-danger">Не совпадение</span>
+                                                    <span class="badge badge-danger">Различие</span>
                                                 </h5>
                                             </div>
                                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"

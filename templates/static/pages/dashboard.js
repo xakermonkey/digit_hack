@@ -11,92 +11,92 @@
 
 
 //line-chart
-var ctx = document.getElementById('lineChart').getContext('2d');
-
-gradientStroke1 = ctx.createLinearGradient(0, 0, 0, 300);
-   gradientStroke1.addColorStop(0, '#008cff');
-   gradientStroke1.addColorStop(1, 'rgba(22, 195, 233, 0.1)');
-
-gradientStroke2 = ctx.createLinearGradient(0, 0, 0, 300);
-   gradientStroke2.addColorStop(0, '#ec536c');
-   gradientStroke2.addColorStop(1, 'rgba(222, 15, 23, 0.1)');
-
-   var myChart = new Chart(ctx, {
-     type: 'line',
-
-     data: {
-       labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-       datasets: [{
-         label: '1-Dataset',
-         data: [3, 30, 10, 10, 22, 12, 5],
-         pointBorderWidth: 0,
-         pointHoverBackgroundColor: gradientStroke1,
-         backgroundColor: gradientStroke1,
-         borderColor: 'transparent',
-         borderWidth: 1
-       },
-       {
-           label: '2-Dataset',
-           data: [5, 15, 12, 25, 5, 7, 5],
-           pointBorderWidth:0,
-           pointHoverBackgroundColor: gradientStroke2,
-           backgroundColor: gradientStroke2,
-           borderColor: 'transparent',
-           borderWidth: 1
-         }],
-      
-     },
-     options: {
-         legend: {
-           position: 'bottom',
-           display:false
-         },
-         tooltips: {
-           displayColors:false,
-           intersect: false,
-         },
-         elements: {
-            point:{
-                radius: 0
-            }
-        },
-         scales: {
-           xAxes: [{
-               ticks: {
-                   max: 100,
-                   min: 20,
-                   stepSize: 10                        
-               },
-               gridLines: {
-                   display: false ,
-                   color: "#FFFFFF"
-               },
-               ticks: {
-                display: true,
-                fontFamily: "'Rubik', sans-serif"
-                },
-               
-           }],
-           yAxes: [{                   
-               gridLines: {
-                 color: '#fff',
-                 display: false ,
-               },
-               ticks: {
-                   display: false,
-                   fontFamily: "'Rubik', sans-serif"
-               },
-               
-           }]
-       },
-      }
-   });
+// var ctx = document.getElementById('lineChart').getContext('2d');
+//
+// gradientStroke1 = ctx.createLinearGradient(0, 0, 0, 300);
+//    gradientStroke1.addColorStop(0, '#008cff');
+//    gradientStroke1.addColorStop(1, 'rgba(22, 195, 233, 0.1)');
+//
+// gradientStroke2 = ctx.createLinearGradient(0, 0, 0, 300);
+//    gradientStroke2.addColorStop(0, '#ec536c');
+//    gradientStroke2.addColorStop(1, 'rgba(222, 15, 23, 0.1)');
+//
+//    var myChart = new Chart(ctx, {
+//      type: 'line',
+//
+//      data: {
+//        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+//        datasets: [{
+//          label: '1-Dataset',
+//          data: [3, 30, 10, 10, 22, 12, 5],
+//          pointBorderWidth: 0,
+//          pointHoverBackgroundColor: gradientStroke1,
+//          backgroundColor: gradientStroke1,
+//          borderColor: 'transparent',
+//          borderWidth: 1
+//        },
+//        {
+//            label: '2-Dataset',
+//            data: [5, 15, 12, 25, 5, 7, 5],
+//            pointBorderWidth:0,
+//            pointHoverBackgroundColor: gradientStroke2,
+//            backgroundColor: gradientStroke2,
+//            borderColor: 'transparent',
+//            borderWidth: 1
+//          }],
+//
+//      },
+//      options: {
+//          legend: {
+//            position: 'bottom',
+//            display:false
+//          },
+//          tooltips: {
+//            displayColors:false,
+//            intersect: false,
+//          },
+//          elements: {
+//             point:{
+//                 radius: 0
+//             }
+//         },
+//          scales: {
+//            xAxes: [{
+//                ticks: {
+//                    max: 100,
+//                    min: 20,
+//                    stepSize: 10
+//                },
+//                gridLines: {
+//                    display: false ,
+//                    color: "#FFFFFF"
+//                },
+//                ticks: {
+//                 display: true,
+//                 fontFamily: "'Rubik', sans-serif"
+//                 },
+//
+//            }],
+//            yAxes: [{
+//                gridLines: {
+//                  color: '#fff',
+//                  display: false ,
+//                },
+//                ticks: {
+//                    display: false,
+//                    fontFamily: "'Rubik', sans-serif"
+//                },
+//
+//            }]
+//        },
+//       }
+//    });
 
 
 
 //Doughnut
       
-var ctx = document.getElementById("dash-doughnut").getContext('2d');
+var ctx = document.getElementById("dash-doughnut1").getContext('2d');
 
 gradientStroke1 = ctx.createLinearGradient(0, 0, 0, 300);
   gradientStroke1.addColorStop(0, '#00e795');
@@ -113,7 +113,7 @@ gradientStroke3 = ctx.createLinearGradient(0, 0, 0, 300);
   var myChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
-      labels: ["Active", "Panding", "Complete"],
+      labels: ["Совпадения", "Различия", "В обработке"],
       datasets: [{
         backgroundColor: [
           gradientStroke1,
