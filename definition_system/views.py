@@ -1,7 +1,13 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate
 
 def login(request):
+    if request.method == "POST":
+        user = authenticate(username=request.POST.get("username"), password=request.POST.get("password"))
+        if user:
+            return redirect("main")
+        else:
+            return render(request, 'employee/login.html')
     return render(request, 'definition_system/login.html')
 
 def recoverpw(request):

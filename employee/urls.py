@@ -10,4 +10,5 @@ urlpatterns = [
     path("employees", employees, name='employees'),
     path("products", products, name='products'),
     path("nomenclature", nomenclature, name='nomenclature'),
+    path("post_data", getDT.as_view()),
 ]
