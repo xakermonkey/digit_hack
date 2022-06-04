@@ -1,0 +1,232 @@
+{% extends 'employee_index.html' %}
+{% load static %}
+{% block title %}Товары{% endblock %}
+{% block content %}
+
+
+    <div class="page-content-wrapper ">
+
+        <div class="container-fluid">
+
+            <div class="page-content-wrapper ">
+
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="page-title-box">
+                                <h4 class="page-title">Сравнение</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title end breadcrumb -->
+
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12 col-xl-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="mt-0 header-title">Данные по заявленному коду</h4>
+                                    <p class="text-muted mb-4 font-13"></p>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="nav flex-column nav-pills text-center" id="v-pills-tab"
+                                                 role="tablist" aria-orientation="vertical">
+                                                <a class="nav-link waves-effect waves-light active"
+                                                   id="v-pills-profile-tab"
+                                                   data-toggle="pill" href="#v-pills-profile" role="tab"
+                                                   aria-controls="v-pills-profile" aria-selected="false">Таможенные
+                                                    пошлины</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="tab-content mo-mt-2" id="v-pills-tabContent">
+                                                <div class="tab-pane fade show active" id="v-pills-profile"
+                                                     role="tabpanel"
+                                                     aria-labelledby="v-pills-profile-tab">
+                                                    <h3 class="font-14 mb-0">Импортная пошлина: 1000</h3>
+                                                    <h3 class="font-14 mb-0">Экспортная пошлина: 2000</h3>
+                                                    <h3 class="font-14 mb-0">НДС (%): 10%</h3>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-12 col-lg-12 col-xl-4">
+                            <div class="col-lg-12" style="left: -32px">
+                                <div class="card text-white card-success" style="    background-color: #d05d5d;
+    border-color: #d05d5d;">
+                                    <div class="card-body">
+                                        <blockquote class="card-bodyquote mb-0">
+                                            <div style="display: flex">
+                                                <h1 style="color: white;">000 894 34</h1>
+                                                <h1 style="color: #e0a800">98</h1>
+                                            </div>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12" style="right: -32px">
+                                <div class="card text-white card-success">
+                                    <div class="card-body">
+                                        <blockquote class="card-bodyquote mb-0">
+                                            <div style="display: flex; align-items: flex-start;">
+                                                <div class="input-group-append" style="margin-right: 2px; height: 38px; margin-top: 3%">
+                                                    <button type="button" class="btn btn-warning dropdown-toggle"
+                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">Другие
+                                                    </button>
+                                                    <div class="dropdown-menu" x-placement="top-start"
+                                                         style="position: absolute; transform: translate3d(706px, -189px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                        <a class="dropdown-item" href="#">000 894 3474 – 83%</a>
+                                                        <a class="dropdown-item" href="#">000 894 3473 – 74%</a>
+                                                        <a class="dropdown-item" href="#">000 894 3472 – 61%</a>
+                                                    </div>
+                                                </div>
+                                                <h1 style="text-align: end">000 894 3475<span
+                                                        class="badge badge-info">91%</span></h1>
+                                            </div>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-lg-12 col-xl-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="mt-0 header-title">Данные по вычисленному коду</h4>
+                                    <p class="text-muted mb-4 font-13"></p>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="nav flex-column nav-pills text-center" id="v-pills-tab"
+                                                 role="tablist" aria-orientation="vertical">
+                                                <a class="nav-link waves-effect waves-light active"
+                                                   id="v-pills-profile-tab1"
+                                                   data-toggle="pill" href="#v-pills-profile1" role="tab"
+                                                   aria-controls="v-pills-profile" aria-selected="false">Таможенные
+                                                    пошлины</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="tab-content mo-mt-2" id="v-pills-tabContent">
+                                                <div class="tab-pane fade show active" id="v-pills-profile1"
+                                                     role="tabpanel"
+                                                     aria-labelledby="v-pills-profile-tab">
+                                                    <h3 class="font-14 mb-0">Импортная пошлина: 1000</h3>
+                                                    <h3 class="font-14 mb-0">Экспортная пошлина: 2000</h3>
+                                                    <h3 class="font-14 mb-0">НДС (%): 10%</h3>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <h4 class="mt-0 header-title">Заявленное описание</h4>
+                                    <p>In this example lazy-loading of images is enabled
+                                        for the next image based on move direction.
+                                        In this example lazy-loading of images is enabled
+                                        for the next image based on move direction.
+                                        In this example lazy-loading of images is enabled
+                                        for the next image based on move direction.
+                                        In this example lazy-loading of images is enabled
+                                        for the next image based on move direction.
+                                        In this example lazy-loading of images is enabled
+                                        for the next image based on move direction.
+                                        In this example lazy-loading of images is enabled
+                                        for the next image based on move direction.</p>
+
+                                    <div class="popup-gallery">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-warning btn-lg btn-block">Принять</button>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <h4 class="mt-0 header-title">Описание, под которое подходит заявленный код</h4>
+                                    <p>In this example lazy-loading of images is enabled
+                                        for the next image based on move direction.
+                                        In this example lazy-loading of images is enabled
+                                        for the next image based on move direction.
+                                        In this example lazy-loading of images is enabled
+                                        for the next image based on move direction.
+                                        In this example lazy-loading of images is enabled
+                                        for the next image based on move direction.
+                                        In this example lazy-loading of images is enabled
+                                        for the next image based on move direction.
+                                        In this example lazy-loading of images is enabled
+                                        for the next image based on move direction.</p>
+
+                                    <div class="popup-gallery">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-gradient-success btn-block">Принять</button>
+                        </div>
+                    </div>
+
+                </div><!-- container -->
+
+            </div> <!-- Page content Wrapper -->
+            <!-- end row -->
+
+        </div><!-- container -->
+
+    </div> <!-- Page content Wrapper -->
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/modernizr.min.js' %}"></script>
+    <script src="{% static 'js/detect.js' %}"></script>
+    <script src="{% static 'js/fastclick.js' %}"></script>
+    <script src="{% static 'js/jquery.slimscroll.js' %}"></script>
+    <script src="{% static 'js/jquery.blockUI.js' %}"></script>
+    <script src="{% static 'js/waves.js' %}"></script>
+    <script src="{% static 'js/jquery.nicescroll.js' %}"></script>
+    <script src="{% static 'js/jquery.scrollTo.min.js' %}"></script>
+
+    <script src="{% static 'plugins/datatables/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'plugins/datatables/dataTables.bootstrap4.min.js' %}"></script>
+    <!-- Buttons examples -->
+    <script src="{% static 'plugins/datatables/dataTables.buttons.min.js' %}"></script>
+    <script src="{% static 'plugins/datatables/buttons.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'plugins/datatables/jszip.min.js' %}"></script>
+    <script src="{% static 'plugins/datatables/pdfmake.min.js' %}"></script>
+    <script src="{% static 'plugins/datatables/vfs_fonts.js' %}"></script>
+    <script src="{% static 'plugins/datatables/buttons.html5.min.js' %}"></script>
+    <script src="{% static 'plugins/datatables/buttons.print.min.js' %}"></script>
+    <script src="{% static 'plugins/datatables/buttons.colVis.min.js' %}"></script>
+    <!-- Responsive examples -->
+    <script src="{% static 'plugins/datatables/dataTables.responsive.min.js' %}"></script>
+    <script src="{% static 'plugins/datatables/responsive.bootstrap4.min.js' %}"></script>
+
+    <!-- Datatable init js -->
+    <script src="{% static 'pages/datatables.init.js' %}"></script>
+
+    <!-- App js -->
+    <script src="{% static 'js/app.js' %}"></script>
+{% endblock %}

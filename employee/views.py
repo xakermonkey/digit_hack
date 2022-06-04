@@ -10,12 +10,15 @@ def recoverpw(request):
 def main(request):
     return render(request, 'employee/main.html')
 
-def employees(request):
-    return render(request, 'employee/employees.html')
+def code_to_text(request):
+    return render(request, 'employee/code_to_text.html')
 
 def products(request):
     return render(request, 'employee/products.html')
 
-def nomenclature(request):
-    return render(request, 'employee/nomenclature.html')
+def products_details(request):
+    return render(request, 'employee/products_details.html')
+
+def documentation(request):
+    return render(request, 'employee/documentation.html')
 
