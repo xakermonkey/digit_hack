@@ -38,6 +38,13 @@ def predict(descript):
                     predict.append(code)
                 if len(predict) == 4:
                     break
+        else:
+            for i in page.find_all("div", class_="row row-in mt10"):
+                code = i.find("a").text.replace(" ", "")
+                if code != "" and len(code) == 10:
+                    predict.append(code)
+                if len(predict) == 4:
+                    break
     return name, count, predict
 
 

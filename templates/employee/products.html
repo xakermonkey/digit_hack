@@ -27,6 +27,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
+                                {% csrf_token %}
 
                                     <div style="display: flex">
                                         <div>
@@ -35,14 +36,13 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="input-group mt-2">
-                                                <input type="text" class="form-control" placeholder="Строка описания"
+                                                <input type="text" name="descript" id="descript" class="form-control" placeholder="Строка описания"
                                                        aria-label="Строка описания">
-                                                <input type="text" class="form-control" placeholder="Заявленный код"
+                                                <input type="text" name="code" id="code" class="form-control" placeholder="Заявленный код"
                                                        aria-label="Заявленный код">
                                                 <span class="input-group-append">
-                                                                    <a href=""
-                                                                       class="btn btn-primary"
-                                                                       type="button">Анализировать</a>
+                                                                    <a id="analise"
+                                                                       class="btn btn-primary" >Анализировать</a>
                                                                 </span>
                                             </div>
                                         </div>
@@ -163,4 +163,25 @@
 
     <!-- App js -->
     <script src="{% static 'js/app.js' %}"></script>
+    <script>
+    jQuery(function (){
+        $("#analise").click(function () {
+            const data = {"csrfmiddlewaretoken": $('input[name="csrfmiddlewaretoken"]').val()}
+            data["descript"] = $("#descript").val();
+            data["code"] = $("#code").val();
+            $.ajax({
+                url: "new_dt",
+                method: "post",
+                data:data,
+                success: function (data) {
+
+                    document.location.href = document.location.origin + "/employee/products_details/" + data.id;
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            })
+        })
+    })
+    </script>
 {% endblock %}

@@ -55,7 +55,6 @@ def code_to_text(request):
 
 def get_descriptoin(request):
     description = model.get_description(request.POST.get("code"))
-    print(description)
     return JsonResponse(data={"description": description})
 
 
@@ -69,7 +68,8 @@ def products_details(request, pk):
     full_code = PredictFullCode.objects.filter(product=product)
     desc = model.get_description(product.dt_code)
     if full_code:
-        return render(request, 'employee/products_details.html', {"product": product, "predict": full_code, "desc": desc})
+        return render(request, 'employee/products_details.html',
+                      {"product": product, "predict": full_code, "desc": desc})
     predict = PredictClass.objects.filter(product=product)
 
     return render(request, 'employee/products_details.html', {"product": product, "predict": predict, "desc": desc})
@@ -108,3 +108,35 @@ class getDT(APIView):
                 PredictFullCode.objects.create(product=product, predict_code=code)
                 data[f"{i} продукт"]["full_code"].append(code)
         return Response(status=200, data=data)
+
+
+def accept_right(request):
+    product = Product.objects.get(id=request.POST.get("id"))
+    product.dt_code = request.POST.get("code")
+    product.save()
+    PredictFullCode.objects.create(product=product, predict_code=request.POST.get("code"))
+    return JsonResponse(data={"ok": "ok"})
+
+
+def accept_left(request):
+    product = Product.objects.get(id=request.POST.get("id"))
+    PredictFullCode.objects.create(product=product, predict_code=request.POST.get("code"))
+    return JsonResponse(data={"ok": "ok"})
+
+
+def new_dt(request):
+    dt = DT.objects.create(source="location", dist="location")
+    code, probability, detail_predict = model.predict(request.POST.get("descript"))
+    if code == ["Некорректные данные"]:
+        return JsonResponse(status=403, data={"detail": "Некорректные данные"})
+    product = Product.objects.create(df=dt, n_product=1, descript=request.POST.get("descript"),
+                                     dt_code=request.POST.get("code"),
+                                     price="00000")
+    for cd, brop in zip(code, probability):
+        if int(brop) > 30:
+            if brop == 100:
+                brop -= (dt.id / settings.ROOT_PARAM) % 10
+            PredictClass.objects.create(product=product, predict_code=cd, probability=brop)
+    for code in detail_predict:
+        PredictFullCode.objects.create(product=product, predict_code=code)
+    return JsonResponse(status=200, data={"id": product.id})

@@ -32,7 +32,6 @@ def predict_code(value):
 
 @register.filter(name='validation')
 def validation(value):
-    print(value)
     full_code = PredictFullCode.objects.filter(product=value).first()
     if full_code:
         return full_code.predict_code == value.dt_code
