@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <!-- end page title end breadcrumb -->
-
+                    {% csrf_token %}
                     <div class="row">
                         <div class="col-md-12 col-lg-12 col-xl-4">
                             <div class="card">
@@ -65,8 +65,8 @@
                                     <div class="card-body">
                                         <blockquote class="card-bodyquote mb-0">
                                             <div style="display: flex">
-                                                <h1 style="color: white;">{{ product.dt_code }}</h1>
-                                                <h1 style="color: #e0a800"></h1>
+                                                <h1 id="white" style="color: white;">{{ product.dt_code }}</h1>
+                                                <h1 id="yellow" style="color: #e0a800"></h1>
                                             </div>
                                         </blockquote>
                                     </div>
@@ -98,10 +98,10 @@
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                {#                                                <h1 style="text-align: end">#}
-                                                {#                                                    {{ predict.0.predict_code }}{% if predict.0.probability %}<span#}
-                                                {#                                                            class="badge badge-info">{{ predict.0.probability }}%</span>{% endif %}#}
-                                                {#                                                </h1>#}
+{#                                                <h1 style="text-align: end">#}
+{#                                                    {{ predict.0.predict_code }}{% if predict.0.probability %}<span#}
+{#                                                            class="badge badge-info">{{ predict.0.probability }}%</span>{% endif %}#}
+{#                                                </h1>#}
                                             </div>
                                         </blockquote>
                                     </div>
@@ -131,10 +131,10 @@
                                                      role="tabpanel"
                                                      aria-labelledby="v-pills-profile-tab">
                                                     <h3 class="font-14 mb-0">Импортная
-                                                        пошлина: {{ product.dt_code|get_import }}</h3>
+                                                        пошлина: {{ predict.0|get_import }}</h3>
                                                     <h3 class="font-14 mb-0">Экспортная
-                                                        пошлина: {{ product.dt_code|get_export }}</h3>
-                                                    <h3 class="font-14 mb-0">НДС (%): {{ product.dt_code|get_nds }}</h3>
+                                                        пошлина: {{ predict.0|get_export }}</h3>
+                                                    <h3 class="font-14 mb-0">НДС (%): {{ predict.0|get_nds }}</h3>
                                                 </div>
 
                                             </div>
@@ -178,12 +178,11 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
-                            <button type="button" class="btn btn-warning btn-lg btn-block">Принять</button>
+                            <button type="button" id="btn1" class="btn btn-warning btn-lg btn-block">Принять</button>
                         </div>
                         <div class="col-lg-6">
-                            <button type="button" class="btn btn-gradient-success btn-block">Принять</button>
+                            <button type="button" id="btn2" class="btn btn-gradient-success btn-block">Принять</button>
                         </div>
-
                     </div>
 
                 </div><!-- container -->
@@ -233,12 +232,52 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         jQuery(function () {
+            const data = {"csrfmiddlewaretoken": $('input[name="csrfmiddlewaretoken"]').val()}
             const pred = new CustomSelect('#predict');
-
+            const code = "{{ product.dt_code }}";
+            for (let i = 0; i < pred.value; i++) {
+                if (pred.value[i] != code[i]) {
+                    $("#white").text(code.slice(0, i));
+                    $("#yellow").text(code.slice(i,));
+                    break;
+                }
+            }
             document.querySelector('#predict').addEventListener('select.change', (e) => {
                 const btn = e.target.querySelector('.select__toggle');
-                console.log(btn.value)
+                $("#white").text(code);
+                $("#yellow").text("");
+                for (let i = 0; i < btn.value.length; i++) {
+                    if (btn.value[i] != code[i]) {
+                        $("#white").text(code.slice(0, i));
+                        $("#yellow").text(code.slice(i,));
+                        break;
+                    }
+                }
             });
+            $('#btn1').click(function () {
+                data["code"] = "{{ product.dt_code }}";
+                data["id"] = "{{ product.id }}";
+                $.ajax({
+                    url:"accept_left",
+                    method:"post",
+                    data:data,
+                    success: function (data) {
+                        document.location.href = document.location.origin + "/employee/products";
+                    }
+                })
+            })
+            $('#btn2').click(function () {
+                data["code"] = pred.value;
+                data["id"] = "{{ product.id }}";
+                $.ajax({
+                    url:"accept_right",
+                    method:"post",
+                    data:data,
+                    success: function (data) {
+                        document.location.href = document.location.origin + "/employee/products";
+                    }
+                })
+            })
         })
     </script>
 
