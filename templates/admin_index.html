@@ -21,6 +21,12 @@
 
 
 <body class="fixed-left">
+<div style="position: absolute; width: 100%;height: 100%; background-color: #e0e0e089;z-index: 100; display: none">
+        <div class="progress" style="margin: 32%;">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
+                 aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+        </div>
+</div>
 
 <!-- Loader -->
 <div id="preloader">
@@ -41,14 +47,15 @@
         <!-- LOGO -->
         <div class="topbar-left">
             <div class="text-center bg-logo">
-                <a href="{% url 'main' %}" class="logo"><img src="https://customs.gov.ru/assets/frontend/images/small-logo.svg"> СОКК ФТС</a>
+                <a href="{% url 'main' %}" class="logo"><img
+                        src="https://customs.gov.ru/assets/frontend/images/small-logo.svg"> СОКК ФТС</a>
                 <!-- <a href="index.html" class="logo"><img src="{% static 'images/logo.png' %}" height="24" alt="logo"></a> -->
             </div>
         </div>
         <div class="sidebar-user">
             <img src="{% static 'images/users/avatar-6.jpg' %}" alt="user" class="rounded-circle img-thumbnail mb-1">
-            <h6 class="">Mr. Michael Hill </h6>
-            <p class=" online-icon text-dark"><i class="mdi mdi-record text-success"></i>online</p>
+            <h6 class="">Анатолий Сколков </h6>
+            <p class=" online-icon text-dark"><i class="mdi mdi-record text-success"></i>Борисоглебск</p>
             <ul class="list-unstyled list-inline mb-0 mt-2">
                 <li class="list-inline-item">
                     <a href="#" class="" data-toggle="tooltip" data-placement="top" title="Profile"><i
@@ -74,23 +81,28 @@
                     <li>
                         <a href="{% url 'main' %}" class="waves-effect">
                             <i class="dripicons-device-desktop"></i>
-                            <span> Главная <span class="badge badge-pill badge-primary float-right">7</span></span>
+                            <span> Главная</span>
+                            {#                             <span class="badge badge-pill badge-primary float-right">7</span>#}
                         </a>
                     </li>
                     <li>
-                        <a href="{% url 'employees' %}" class="waves-effect"><i
-                                class="dripicons-to-do"></i><span> Сотрудники </span></a>
+                        <a href="{% url 'code_to_text' %}" class="waves-effect"><i
+                                class="fas fa-arrows-alt-h"></i><span> Описание по коду </span></a>
                     </li>
 
                     <li class="menu-title">Контроль</li>
 
                     <li>
-                        <a href="{% url 'products' %}" class="waves-effect"><i
-                                class="dripicons-to-do"></i><span> Товары </span></a>
+                        <a href="{% url 'employees' %}" class="waves-effect"><i
+                                class="ion-ios7-people"></i><span> Сотрудники </span></a>
                     </li>
                     <li>
-                        <a href="{% url 'nomenclature' %}" class="waves-effect"><i
-                                class="dripicons-to-do"></i><span> ТН ВЭД ЕАЭС</span></a>
+                        <a href="{% url 'products' %}" class="waves-effect"><i
+                                class="fab fa-product-hunt"></i><span> Все товары </span></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'documentation' %}" class="waves-effect"><i
+                                class="dripicons-document"></i><span> Документация</span></a>
                     </li>
 
                 </ul>
@@ -125,119 +137,119 @@
                                                                        alt="" height="16"/><span> English </span></a>
                             </div>
                         </li>
-                        <li class="list-inline-item dropdown notification-list">
-                            <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#"
-                               role="button"
-                               aria-haspopup="false" aria-expanded="false">
-                                <i class="dripicons-mail noti-icon"></i>
-                                <span class="badge badge-danger noti-icon-badge">5</span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg">
-                                <!-- item-->
-                                <div class="dropdown-item noti-title">
-                                    <h5><span class="badge badge-danger float-right">745</span>Messages</h5>
-                                </div>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <div class="notify-icon"><img src="{% static 'images/users/avatar-2.jpg' %}"
-                                                                  alt="user-img" class="img-fluid rounded-circle"/>
-                                    </div>
-                                    <p class="notify-details"><b>Charles M. Jones</b><small class="text-muted">Dummy
-                                        text of the printing and typesetting industry.</small></p>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <div class="notify-icon"><img src="{% static 'images/users/avatar-3.jpg' %}"
-                                                                  alt="user-img" class="img-fluid rounded-circle"/>
-                                    </div>
-                                    <p class="notify-details"><b>Thomas J. Mimms</b><small class="text-muted">You have
-                                        87 unread messages</small></p>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <div class="notify-icon"><img src="{% static 'images/users/avatar-4.jpg' %}"
-                                                                  alt="user-img" class="img-fluid rounded-circle"/>
-                                    </div>
-                                    <p class="notify-details"><b>Luis M. Konrad</b><small class="text-muted">It is a
-                                        long established fact that a reader will</small></p>
-                                </a>
-
-                                <!-- All-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item border-top">
-                                    View All
-                                </a>
-
-                            </div>
-                        </li>
-
-                        <li class="list-inline-item dropdown notification-list">
-                            <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#"
-                               role="button"
-                               aria-haspopup="false" aria-expanded="false">
-                                <i class="dripicons-bell noti-icon"></i>
-                                <span class="badge badge-success noti-icon-badge">2</span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg">
-                                <!-- item-->
-                                <div class="dropdown-item noti-title">
-                                    <h5><span class="badge badge-danger float-right">87</span>Notification</h5>
-                                </div>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <div class="notify-icon bg-primary"><i class="mdi mdi-cart-outline"></i></div>
-                                    <p class="notify-details"><b>Your order is placed</b><small class="text-muted">Dummy
-                                        text of the printing and typesetting industry.</small></p>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <div class="notify-icon bg-success"><i class="mdi mdi-message"></i></div>
-                                    <p class="notify-details"><b>New Message received</b><small class="text-muted">You
-                                        have 87 unread messages</small></p>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <div class="notify-icon bg-warning"><i class="mdi mdi-glass-cocktail"></i></div>
-                                    <p class="notify-details"><b>Your item is shipped</b><small class="text-muted">It is
-                                        a long established fact that a reader will</small></p>
-                                </a>
-
-                                <!-- All-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item border-top">
-                                    View All
-                                </a>
-
-                            </div>
-                        </li>
-
-                        <li class="list-inline-item dropdown notification-list">
-                            <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown"
-                               href="#" role="button"
-                               aria-haspopup="false" aria-expanded="false">
-                                <img src="{% static 'images/users/avatar-6.jpg' %}" alt="user" class="rounded-circle">
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
-                                <!-- item-->
-                                <div class="dropdown-item noti-title">
-                                    <h5>Welcome</h5>
-                                </div>
-                                <a class="dropdown-item" href="#"><i
-                                        class="mdi mdi-account-circle m-r-5 text-muted"></i> Profile</a>
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-wallet m-r-5 text-muted"></i> My
-                                    Wallet</a>
-                                <a class="dropdown-item" href="#"><span class="badge badge-success float-right">5</span><i
-                                        class="mdi mdi-settings m-r-5 text-muted"></i> Settings</a>
-                                <a class="dropdown-item" href="#"><i
-                                        class="mdi mdi-lock-open-outline m-r-5 text-muted"></i> Lock screen</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-logout m-r-5 text-muted"></i> Logout</a>
-                            </div>
-                        </li>
+                        {#                        <li class="list-inline-item dropdown notification-list">#}
+                        {#                            <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#"#}
+                        {#                               role="button"#}
+                        {#                               aria-haspopup="false" aria-expanded="false">#}
+                        {#                                <i class="dripicons-mail noti-icon"></i>#}
+                        {#                                <span class="badge badge-danger noti-icon-badge">5</span>#}
+                        {#                            </a>#}
+                        {#                            <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg">#}
+                        {#                                <!-- item-->#}
+                        {#                                <div class="dropdown-item noti-title">#}
+                        {#                                    <h5><span class="badge badge-danger float-right">745</span>Messages</h5>#}
+                        {#                                </div>#}
+                        {##}
+                        {#                                <!-- item-->#}
+                        {#                                <a href="javascript:void(0);" class="dropdown-item notify-item">#}
+                        {#                                    <div class="notify-icon"><img src="{% static 'images/users/avatar-2.jpg' %}"#}
+                        {#                                                                  alt="user-img" class="img-fluid rounded-circle"/>#}
+                        {#                                    </div>#}
+                        {#                                    <p class="notify-details"><b>Charles M. Jones</b><small class="text-muted">Dummy#}
+                        {#                                        text of the printing and typesetting industry.</small></p>#}
+                        {#                                </a>#}
+                        {##}
+                        {#                                <!-- item-->#}
+                        {#                                <a href="javascript:void(0);" class="dropdown-item notify-item">#}
+                        {#                                    <div class="notify-icon"><img src="{% static 'images/users/avatar-3.jpg' %}"#}
+                        {#                                                                  alt="user-img" class="img-fluid rounded-circle"/>#}
+                        {#                                    </div>#}
+                        {#                                    <p class="notify-details"><b>Thomas J. Mimms</b><small class="text-muted">You have#}
+                        {#                                        87 unread messages</small></p>#}
+                        {#                                </a>#}
+                        {##}
+                        {#                                <!-- item-->#}
+                        {#                                <a href="javascript:void(0);" class="dropdown-item notify-item">#}
+                        {#                                    <div class="notify-icon"><img src="{% static 'images/users/avatar-4.jpg' %}"#}
+                        {#                                                                  alt="user-img" class="img-fluid rounded-circle"/>#}
+                        {#                                    </div>#}
+                        {#                                    <p class="notify-details"><b>Luis M. Konrad</b><small class="text-muted">It is a#}
+                        {#                                        long established fact that a reader will</small></p>#}
+                        {#                                </a>#}
+                        {##}
+                        {#                                <!-- All-->#}
+                        {#                                <a href="javascript:void(0);" class="dropdown-item notify-item border-top">#}
+                        {#                                    View All#}
+                        {#                                </a>#}
+                        {##}
+                        {#                            </div>#}
+                        {#                        </li>#}
+                        {##}
+                        {#                        <li class="list-inline-item dropdown notification-list">#}
+                        {#                            <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#"#}
+                        {#                               role="button"#}
+                        {#                               aria-haspopup="false" aria-expanded="false">#}
+                        {#                                <i class="dripicons-bell noti-icon"></i>#}
+                        {#                                <span class="badge badge-success noti-icon-badge">2</span>#}
+                        {#                            </a>#}
+                        {#                            <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg">#}
+                        {#                                <!-- item-->#}
+                        {#                                <div class="dropdown-item noti-title">#}
+                        {#                                    <h5><span class="badge badge-danger float-right">87</span>Notification</h5>#}
+                        {#                                </div>#}
+                        {##}
+                        {#                                <!-- item-->#}
+                        {#                                <a href="javascript:void(0);" class="dropdown-item notify-item">#}
+                        {#                                    <div class="notify-icon bg-primary"><i class="mdi mdi-cart-outline"></i></div>#}
+                        {#                                    <p class="notify-details"><b>Your order is placed</b><small class="text-muted">Dummy#}
+                        {#                                        text of the printing and typesetting industry.</small></p>#}
+                        {#                                </a>#}
+                        {##}
+                        {#                                <!-- item-->#}
+                        {#                                <a href="javascript:void(0);" class="dropdown-item notify-item">#}
+                        {#                                    <div class="notify-icon bg-success"><i class="mdi mdi-message"></i></div>#}
+                        {#                                    <p class="notify-details"><b>New Message received</b><small class="text-muted">You#}
+                        {#                                        have 87 unread messages</small></p>#}
+                        {#                                </a>#}
+                        {##}
+                        {#                                <!-- item-->#}
+                        {#                                <a href="javascript:void(0);" class="dropdown-item notify-item">#}
+                        {#                                    <div class="notify-icon bg-warning"><i class="mdi mdi-glass-cocktail"></i></div>#}
+                        {#                                    <p class="notify-details"><b>Your item is shipped</b><small class="text-muted">It is#}
+                        {#                                        a long established fact that a reader will</small></p>#}
+                        {#                                </a>#}
+                        {##}
+                        {#                                <!-- All-->#}
+                        {#                                <a href="javascript:void(0);" class="dropdown-item notify-item border-top">#}
+                        {#                                    View All#}
+                        {#                                </a>#}
+                        {##}
+                        {#                            </div>#}
+                        {#                        </li>#}
+                        {##}
+                        {#                        <li class="list-inline-item dropdown notification-list">#}
+                        {#                            <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown"#}
+                        {#                               href="#" role="button"#}
+                        {#                               aria-haspopup="false" aria-expanded="false">#}
+                        {#                                <img src="{% static 'images/users/avatar-6.jpg' %}" alt="user" class="rounded-circle">#}
+                        {#                            </a>#}
+                        {#                            <div class="dropdown-menu dropdown-menu-right profile-dropdown ">#}
+                        {#                                <!-- item-->#}
+                        {#                                <div class="dropdown-item noti-title">#}
+                        {#                                    <h5>Welcome</h5>#}
+                        {#                                </div>#}
+                        {#                                <a class="dropdown-item" href="#"><i#}
+                        {#                                        class="mdi mdi-account-circle m-r-5 text-muted"></i> Profile</a>#}
+                        {#                                <a class="dropdown-item" href="#"><i class="mdi mdi-wallet m-r-5 text-muted"></i> My#}
+                        {#                                    Wallet</a>#}
+                        {#                                <a class="dropdown-item" href="#"><span class="badge badge-success float-right">5</span><i#}
+                        {#                                        class="mdi mdi-settings m-r-5 text-muted"></i> Settings</a>#}
+                        {#                                <a class="dropdown-item" href="#"><i#}
+                        {#                                        class="mdi mdi-lock-open-outline m-r-5 text-muted"></i> Lock screen</a>#}
+                        {#                                <div class="dropdown-divider"></div>#}
+                        {#                                <a class="dropdown-item" href="#"><i class="mdi mdi-logout m-r-5 text-muted"></i> Logout</a>#}
+                        {#                            </div>#}
+                        {#                        </li>#}
                     </ul>
 
                     <ul class="list-inline menu-left mb-0">
@@ -246,12 +258,12 @@
                                 <i class="mdi mdi-menu"></i>
                             </button>
                         </li>
-{#                        <li class="hide-phone app-search">#}
-{#                            <form role="search" class="">#}
-{#                                <input type="text" placeholder="Search..." class="form-control">#}
-{#                                <a href=""><i class="fas fa-search"></i></a>#}
-{#                            </form>#}
-{#                        </li>#}
+                        {#                        <li class="hide-phone app-search">#}
+                        {#                            <form role="search" class="">#}
+                        {#                                <input type="text" placeholder="Search..." class="form-control">#}
+                        {#                                <a href=""><i class="fas fa-search"></i></a>#}
+                        {#                            </form>#}
+                        {#                        </li>#}
                     </ul>
 
                     <div class="clearfix"></div>
@@ -272,27 +284,30 @@
     <!-- End Right content here -->
 
 </div>
+
 <!-- END wrapper -->
 
 
 <!-- jQuery  -->
-<script src="{% static 'js/jquery.min.js' %}"></script>
-<script src="{% static 'js/popper.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/modernizr.min.js' %}"></script>
-<script src="{% static 'js/detect.js' %}"></script>
-<script src="{% static 'js/fastclick.js' %}"></script>
-<script src="{% static 'js/jquery.slimscroll.js' %}"></script>
-<script src="{% static 'js/jquery.blockUI.js' %}"></script>
-<script src="{% static 'js/waves.js' %}"></script>
-<script src="{% static 'js/jquery.nicescroll.js' %}"></script>
-<script src="{% static 'js/jquery.scrollTo.min.js' %}"></script>
+{% block script %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/modernizr.min.js' %}"></script>
+    <script src="{% static 'js/detect.js' %}"></script>
+    <script src="{% static 'js/fastclick.js' %}"></script>
+    <script src="{% static 'js/jquery.slimscroll.js' %}"></script>
+    <script src="{% static 'js/jquery.blockUI.js' %}"></script>
+    <script src="{% static 'js/waves.js' %}"></script>
+    <script src="{% static 'js/jquery.nicescroll.js' %}"></script>
+    <script src="{% static 'js/jquery.scrollTo.min.js' %}"></script>
 
-<script src="{% static 'plugins/chart.js/chart.min.js' %}"></script>
-<script src="{% static 'pages/dashboard.js' %}"></script>
+    <script src="{% static 'plugins/chart.js/chart.min.js' %}"></script>
+    <script src="{% static 'pages/dashboard.js' %}"></script>
 
-<!-- App js -->
-<script src="{% static 'js/app.js' %}"></script>
+    <!-- App js -->
+    <script src="{% static 'js/app.js' %}"></script>
+{% endblock %}
 
 
 </body>
