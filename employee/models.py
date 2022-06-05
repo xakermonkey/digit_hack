@@ -83,7 +83,7 @@ class DT(models.Model):
 
 
 class Product(models.Model):
-    df = models.ForeignKey(DT, on_delete=models.CASCADE, verbose_name="Декларация на товары")
+    df = models.ForeignKey(DT, on_delete=models.CASCADE, verbose_name="Декларация на товары", related_name="product")
     n_product = models.IntegerField(verbose_name="Номер товара в декларации")
     descript = models.TextField(verbose_name="Описание товара")
     dt_code = models.CharField(max_length=15, verbose_name="Код в декларции")
@@ -91,7 +91,7 @@ class Product(models.Model):
     price = models.CharField(max_length=10, verbose_name="Стоимость товара")
 
     def __str__(self):
-        return f"{self.n_product} товар из декларации на товары № {self.id}"
+        return f"{self.n_product} товар из декларации на товары № {self.df.id}"
 
     class Meta:
         verbose_name = "Товар"
@@ -99,11 +99,11 @@ class Product(models.Model):
 
 
 class PredictClass(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="predict_four")
     predict_code = models.CharField(max_length=10, verbose_name="Предсказанный код")
     probability = models.IntegerField(verbose_name="Вероятность")
 
 
 class PredictFullCode(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="predict_full")
     predict_code = models.CharField(max_length=10, verbose_name="Предсказанный код")
