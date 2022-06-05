@@ -1,7 +1,33 @@
 {% extends 'employee_index.html' %}
 {% load static %}
 {% block title %}Главная{% endblock %}
+
+{% block header %}
+    <script>
+        function CBR_XML_Daily_Ru(rates) {
+            function trend(current, previous) {
+                if (current > previous) return ' ▲';
+                if (current < previous) return ' ▼';
+                return '';
+            }
+
+            var USDrate = rates.Valute.USD.Value.toFixed(4).replace('.', ',');
+            var USD = document.getElementById('USD');
+            USD.innerHTML = USD.innerHTML.replace('00,0000', USDrate);
+            USD.innerHTML += trend(rates.Valute.USD.Value, rates.Valute.USD.Previous);
+
+            var EURrate = rates.Valute.EUR.Value.toFixed(4).replace('.', ',');
+            var EUR = document.getElementById('EUR');
+            EUR.innerHTML = EUR.innerHTML.replace('00,0000', EURrate);
+            EUR.innerHTML += trend(rates.Valute.EUR.Value, rates.Valute.EUR.Previous);
+        }
+    </script>
+    <link rel="dns-prefetch" href="https://www.cbr-xml-daily.ru/"/>
+    <script src="//www.cbr-xml-daily.ru/daily_jsonp.js" async></script>
+{% endblock %}
 {% block content %}
+
+
 
 
     <div class="page-content-wrapper ">
@@ -102,8 +128,8 @@
                                                 <i class="fas fa-dollar-sign text-gradient-success"></i>
                                             </div>
                                             <div class="col-10 text-right">
-                                                <h5 class="mt-0 mb-1">61,97</h5>
-                                                <p class="mb-0 font-12 text-muted">Курс доллара</p>
+                                                <h5 id="USD" class="mt-0 mb-1">00,0000</h5>
+                                                <p class="mb-0 font-12 text-muted">Курс доллара (руб.)</p>
                                             </div>
                                         </div>
                                     </div>
@@ -119,8 +145,8 @@
                                                 <i class="fas fa-euro-sign text-gradient-success"></i>
                                             </div>
                                             <div class="col-10 text-right">
-                                                <h5 class="mt-0 mb-1">65,92</h5>
-                                                <p class="mb-0 font-12 text-muted">Курс евро</p>
+                                                <h5 id="EUR" class="mt-0 mb-1">00,0000</h5>
+                                                <p class="mb-0 font-12 text-muted">Курс евро (руб.)</p>
                                             </div>
                                         </div>
                                     </div>
