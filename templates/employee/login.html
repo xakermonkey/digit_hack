@@ -29,11 +29,11 @@
                 <div class="card-body">
 
                     <div class="text-center m-b-15">
-                        <a href="index.html" class="logo logo-admin"><img src="{% static 'images/logo.png' %}" height="60" alt="logo"></a>
+                        <a href="{% url 'login' %}" class="logo logo-admin"><img src="{% static 'images/logo.png' %}" height="60" alt="logo"></a>
                     </div>
 
                     <div class="p-3">
-                        <form class="form-horizontal m-t-20" action="index.html">
+                        <form class="form-horizontal m-t-20" action="{% url 'login' %}">
 
                             <div class="form-group row">
                                 <div class="col-12">
