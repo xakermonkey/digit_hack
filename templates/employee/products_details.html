@@ -81,9 +81,11 @@
                                                     <button type="button" class="select__toggle" name="predict"
                                                             value="{{ predict.0.predict_code }}"
                                                             data-select="toggle"
-                                                            data-index="0">{{ predict.0.predict_code }}{% if predict.0.probability %} - {{ predict.0.probability }}% {% endif %}
+                                                            data-index="0"><h1>
+                                                        {{ predict.0.predict_code }}{% if predict.0.probability %} -
+                                                            {{ predict.0.probability }}% {% endif %}</h1>
                                                     </button>
-                                                    <div style="background: #eeeeee" class="select__dropdown">
+                                                    <div style="background: #59c390" class="select__dropdown">
                                                         <ul class="select__options">
                                                             {% for pred in predict %}
                                                                 <li class="select__option" data-select="option"
@@ -96,10 +98,10 @@
                                                         </ul>
                                                     </div>
                                                 </div>
-{#                                                <h1 style="text-align: end">#}
-{#                                                    {{ predict.0.predict_code }}{% if predict.0.probability %}<span#}
-{#                                                            class="badge badge-info">{{ predict.0.probability }}%</span>{% endif %}#}
-{#                                                </h1>#}
+                                                {#                                                <h1 style="text-align: end">#}
+                                                {#                                                    {{ predict.0.predict_code }}{% if predict.0.probability %}<span#}
+                                                {#                                                            class="badge badge-info">{{ predict.0.probability }}%</span>{% endif %}#}
+                                                {#                                                </h1>#}
                                             </div>
                                         </blockquote>
                                     </div>
@@ -147,7 +149,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="card">
-                                <div class="card-body">
+                                <div class="card-body" style="height: 220px;">
 
                                     <h4 class="mt-0 header-title">Заявленное описание</h4>
                                     <p>{{ product.descript }}</p>
@@ -158,11 +160,10 @@
 
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-warning btn-lg btn-block">Принять</button>
                         </div>
                         <div class="col-lg-6">
                             <div class="card">
-                                <div class="card-body">
+                                <div class="card-body" style="height: 220px;">
 
                                     <h4 class="mt-0 header-title">Описание, под которое подходит заявленный код</h4>
                                     <p>{{ desc }}</p>
@@ -173,8 +174,16 @@
 
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <button type="button" class="btn btn-warning btn-lg btn-block">Принять</button>
+                        </div>
+                        <div class="col-lg-6">
                             <button type="button" class="btn btn-gradient-success btn-block">Принять</button>
                         </div>
+
                     </div>
 
                 </div><!-- container -->
